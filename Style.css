@@ -13,31 +13,55 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  min-height: 100vh; /* Tambahan penting agar background penuh */
+  min-height: 100vh;
 }
 
-
+/* Header */
 header {
+  background-color: #360080;
+  padding: 20px 40px;
+}
+
+.header-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 40px;
-  background-color: #360080;
   flex-wrap: wrap;
 }
 
 .komsel-title {
   font-size: 32px;
   font-weight: bold;
+  color: white;
 }
 
 .komsel-title .sma {
   color: #00eaff;
 }
 
+/* Hamburger menu */
+.menu-toggle {
+  display: none;
+  font-size: 32px;
+  color: white;
+  cursor: pointer;
+}
+
+.icon-menu,
+.icon-close {
+  font-size: 32px;
+  color: white;
+}
+
+/* Navigation */
+nav {
+  display: flex;
+  gap: 15px;
+  transition: all 0.3s ease-in-out;
+}
+
 nav a {
   color: white;
-  margin: 0 15px;
   text-decoration: none;
   font-weight: bold;
 }
@@ -47,41 +71,16 @@ nav a:hover {
   transition: color 0.3s ease;
 }
 
-.about-us {
-  position: absolute;
-  top: 120px; /* Geser ke bawah dari header */
-  left: 40px; /* Jarak dari sisi kiri */
-  text-align: left;
-  color: white;
-}
-
-.about-us p {
-  font-size: 14px;
-  letter-spacing: 2px;
-  margin-bottom: 5px;
-  color: #ccc;
-}
-
-.about-us h2 {
-  font-size: 36px;
-  font-weight: bold;
-  margin-top: -15px;
-  margin-left: -10px;
-}
-
-.about-us h2 .sma {
-  color: #00eaff;
-}
-
-
+/* Hero */
 .hero {
   position: relative;
-  text-align: left;    /* ubah dari center ke kiri */
-  padding: 100px 20px 60px 60px; /* atas, kanan, bawah, kiri */
-  max-width: 500px;    /* supaya tidak terlalu lebar */
-  margin-left: 40px;   /* jarak dari sisi kiri halaman */
+  text-align: left;
+  padding: 100px 20px 60px 60px;
+  max-width: 500px;
+  margin-left: 40px;
 }
 
+/* Ayat */
 .verse {
   display: flex;
   justify-content: flex-end;
@@ -115,12 +114,38 @@ nav a:hover {
   color: #00eaff;
 }
 
+/* About Us */
+.about-us {
+  position: absolute;
+  top: 120px;
+  left: 40px;
+  text-align: left;
+  color: white;
+}
 
+.about-us p {
+  font-size: 14px;
+  letter-spacing: 2px;
+  margin-bottom: 5px;
+  color: #ccc;
+}
+
+.about-us h2 {
+  font-size: 36px;
+  font-weight: bold;
+  margin-top: -15px;
+  margin-left: -10px;
+}
+
+.about-us h2 .sma {
+  color: #00eaff;
+}
+
+/* Content dan Background */
 .content {
   position: relative;
   z-index: 1;
 }
-
 
 .background {
   width: 100%;
@@ -131,11 +156,7 @@ nav a:hover {
   z-index: -1;
 }
 
-.content {
-  position: relative;
-  z-index: 1;
-}
-
+/* Info */
 .info {
   margin-top: 30px;
   font-size: 20px;
@@ -149,28 +170,9 @@ ion-icon {
   margin-right: 10px;
 }
 
-/* Tombol hamburger */
-.menu-toggle {
-  display: none;
-  font-size: 32px;
-  color: white;
-  cursor: pointer;
-}
-
-.icon-menu, .icon-close {
-  font-size: 32px;
-  color: white;
-}
-
-/* Nav style default */
-nav {
-  display: flex;
-  gap: 15px;
-  transition: all 0.3s ease-in-out;
-}
-
+/* Home Main */
 .home-main {
-  min-height: calc(100vh - 80px); /* kurangi tinggi header */
+  min-height: calc(100vh - 80px);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -194,9 +196,12 @@ nav {
   color: #ddd;
 }
 
+/* Responsive: Mobile */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
 
-/* Mobile style */
-@media (max-width: 599px) {
   nav {
     display: none;
     flex-direction: column;
@@ -224,99 +229,100 @@ nav {
     font-size: 18px;
   }
 
-  .menu-toggle {
-    display: block;
+  .verse {
+    display: none;
   }
 }
 
-
-/* Tablet (min width 600px sampai 900px) */
+/* Responsive: Tablet */
 @media (min-width: 600px) and (max-width: 900px) {
   header {
     padding: 15px 30px;
   }
+
   .komsel-title {
     font-size: 28px;
   }
+
   nav {
-  display: flex;
-  flex-direction: column;
-  opacity: 0;
-  max-height: 0;
-  overflow: hidden;
-  transition: opacity 0.3s ease, max-height 0.3s ease;
-  margin-top: -10px;
-  background-color: #350080a2;
+    flex-direction: column;
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    margin-top: -10px;
+    background-color: #350080a2;
+    transition: opacity 0.3s ease, max-height 0.3s ease;
   }
+
   nav.show {
-  opacity: 1;
-  max-height: 500px; /* cukup besar untuk menampilkan semua menu */
+    opacity: 1;
+    max-height: 500px;
   }
+
   .about-us {
     position: static;
     margin: 60px 20px 20px 20px;
     text-align: center;
   }
+
   .about-us h2 {
     font-size: 28px;
     margin-left: 0;
     margin-top: 0;
   }
+
   .hero {
     padding: 40px 20px;
     max-width: 90%;
     margin: 40px auto 0 auto;
     text-align: center;
   }
+
   .info {
     font-size: 18px;
     line-height: 1.6;
   }
+
   ion-icon {
     font-size: 18px;
   }
 }
 
-/* Smartphone (max width 768px) */
+/* Responsive: Smartphone (kecil banget) */
 @media (max-width: 599px) {
   header {
-    flex-direction: column;
-    align-items: flex-start;
     padding: 15px 20px;
   }
+
   .komsel-title {
     font-size: 24px;
-    margin-bottom: 10px;
   }
-  nav {
-    width: 100%;
-  }
-  nav a {
-    display: block;
-    margin: 8px 0;
-    font-size: 16px;
-  }
+
   .about-us {
     position: static;
     margin: 50px 15px 20px 15px;
     text-align: center;
   }
+
   .about-us h2 {
     font-size: 24px;
     margin-left: 0;
     margin-top: 0;
   }
+
   .hero {
     padding: 30px 15px;
     max-width: 100%;
     margin: 30px auto 0 auto;
     text-align: center;
   }
+
   .info {
     font-size: 16px;
     line-height: 1.5;
     margin-top: -20px;
   }
+
   ion-icon {
     font-size: 16px;
   }
