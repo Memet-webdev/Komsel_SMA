@@ -195,8 +195,9 @@ nav {
 }
 
 
-/* Tablet (min width 600px sampai 900px) */
-@media (min-width: 600px) and (max-width: 900px) {
+/* Mobile style */
+@media (max-width: 599px) {
+  nav {
     display: none;
     flex-direction: column;
     background-color: #360080;
@@ -229,8 +230,8 @@ nav {
 }
 
 
-/* Mobile style */
-@media (max-width: 768px) {
+/* Tablet (min width 600px sampai 900px) */
+@media (min-width: 600px) and (max-width: 900px) {
   header {
     padding: 15px 30px;
   }
@@ -276,7 +277,7 @@ nav {
   }
 }
 
-/* Smartphone (max width 599px) */
+/* Smartphone (max width 768px) */
 @media (max-width: 599px) {
   header {
     flex-direction: column;
