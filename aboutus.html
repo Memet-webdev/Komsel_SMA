@@ -14,13 +14,14 @@
 <body>
 
 <header>
-  <div class="komsel-title">
-    KOMSEL <span class="sma">SMA</span>
-  </div>
-
-  <div class="menu-toggle" id="menu-toggle">
-    <ion-icon name="menu-outline" class="icon-menu"></ion-icon>
-    <ion-icon name="close-outline" class="icon-close" style="display: none;"></ion-icon>
+  <div class="header-container">
+    <div class="komsel-title">
+      KOMSEL <span class="sma">SMA</span>
+    </div>
+    <div class="menu-toggle" id="menu-toggle">
+      <ion-icon name="menu-outline" class="icon-menu"></ion-icon>
+      <ion-icon name="close-outline" class="icon-close" style="display: none;"></ion-icon>
+    </div>
   </div>
 
   <nav id="nav-menu">
@@ -29,6 +30,7 @@
     <a href="https://maps.app.goo.gl/1jTntEWWhHMbN8576">LOCATION</a>
   </nav>
 </header>
+
   
 
   <section class="about-us">
@@ -47,7 +49,7 @@
       <P><ion-icon name="logo-instagram"></ion-icon>@<a style="text-decoration: underline; color: #fff;" href="https://www.instagram.com/smamewing/">smamewing</a></P>
     </div>
   </div>
-
+</section>
 
 <section class="verse">
   <p class="verse-text">
@@ -59,7 +61,7 @@
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
-  // 1. Toggle Hamburger Menu
+  // Toggle Hamburger Menu
   const toggle = document.getElementById('menu-toggle');
   const navMenu = document.getElementById('nav-menu');
   const iconMenu = document.querySelector('.icon-menu');
@@ -72,29 +74,49 @@ document.addEventListener("DOMContentLoaded", function () {
     iconClose.style.display = isVisible ? 'block' : 'none';
   });
 
-  // 2. Waktu hitung mundur ke hari Rabu jam 18.30
-  function updateCountdown() {
-    const now = new Date();
-    const nextWednesday = new Date();
+  function getNextWednesday1830() {
+  const now = new Date();
+  const target = new Date(now);
 
-    nextWednesday.setDate(now.getDate() + ((3 + 7 - now.getDay()) % 7 || 7));
-    nextWednesday.setHours(18, 30, 0, 0);
+  const today = now.getDay(); // 0 = Minggu, 3 = Rabu
+  const isBefore1830 = now.getHours() < 18 || (now.getHours() === 18 && now.getMinutes() < 30);
 
-    const diff = nextWednesday - now;
-    const hours = Math.floor(diff / (1000 * 60 * 60));
-    const minutes = Math.floor((diff / (1000 * 60)) % 60);
-    const seconds = Math.floor((diff / 1000) % 60);
-
-    const countdownEl = document.getElementById("countdown");
-    if (countdownEl) {
-      countdownEl.textContent = ` ${hours}:${minutes}:${seconds}`;
-    }
+  if (today === 3 && isBefore1830) {
+    // Hari ini Rabu sebelum 18:30 → target hari ini
+    target.setHours(18, 30, 0, 0);
+  } else {
+    // Rabu berikutnya
+    const daysUntilNextWednesday = (10 - today) % 7 || 7; // (3 - today + 7) % 7
+    target.setDate(now.getDate() + daysUntilNextWednesday);
+    target.setHours(18, 30, 0, 0);
   }
+
+  return target;
+}
+
+function updateCountdown() {
+  const now = new Date();
+  const target = getNextWednesday1830();
+
+  const diff = target - now;
+
+  const pad = (num) => String(num).padStart(2, '0');
+  const hours = pad(Math.floor(diff / (1000 * 60 * 60)));
+  const minutes = pad(Math.floor((diff / (1000 * 60)) % 60));
+  const seconds = pad(Math.floor((diff / 1000) % 60));
+
+  const countdownEl = document.getElementById("countdown");
+  if (countdownEl) {
+    countdownEl.textContent = ` ${hours}:${minutes}:${seconds}`;
+  }
+}
+
 
   updateCountdown();
   setInterval(updateCountdown, 1000);
 });
 </script>
+
 
 
 </body>
