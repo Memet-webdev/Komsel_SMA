@@ -1,3 +1,4 @@
+/* Global Reset */
 * {
   margin: 0;
   padding: 0;
@@ -5,6 +6,7 @@
   font-family: 'Segoe UI', sans-serif;
 }
 
+/* Body Styling */
 body {
   background-color: #1e004f;
   color: white;
@@ -39,7 +41,7 @@ header {
   color: #00eaff;
 }
 
-/* Hamburger menu */
+/* Hamburger Menu */
 .menu-toggle {
   display: none;
   font-size: 32px;
@@ -56,9 +58,13 @@ header {
 /* Navigation */
 nav {
   display: flex;
+  justify-content: center;
+  align-items: center;
   gap: 15px;
   transition: all 0.3s ease-in-out;
+  margin-top: -25px;
 }
+
 
 nav a {
   color: white;
@@ -71,7 +77,7 @@ nav a:hover {
   transition: color 0.3s ease;
 }
 
-/* Hero */
+/* Hero Section */
 .hero {
   position: relative;
   text-align: left;
@@ -141,7 +147,7 @@ nav a:hover {
   color: #00eaff;
 }
 
-/* Content dan Background */
+/* Content & Background */
 .content {
   position: relative;
   z-index: 1;
@@ -245,11 +251,10 @@ ion-icon {
   }
 
   nav {
-    flex-direction: column;
     opacity: 0;
     max-height: 0;
     overflow: hidden;
-    margin-top: -10px;
+    margin-top: -25px;
     background-color: #350080a2;
     transition: opacity 0.3s ease, max-height 0.3s ease;
   }
@@ -288,10 +293,15 @@ ion-icon {
   }
 }
 
-/* Responsive: Smartphone (kecil banget) */
+/* Responsive: Smartphone Kecil */
 @media (max-width: 599px) {
   header {
     padding: 15px 20px;
+  }
+
+  nav {
+    background-color: #350080c2;
+    margin-top: -8px;
   }
 
   .komsel-title {
