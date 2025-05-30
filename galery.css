@@ -193,6 +193,10 @@ nav a:hover {
     font-size: 18px;
   }
 
+  .komsel-title {
+    margin-top: 6px;
+  }
+  
   .verse {
     display: none;
   }
