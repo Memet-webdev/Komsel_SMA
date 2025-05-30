@@ -106,7 +106,7 @@ nav a:hover {
 
 .gallery-page h2 {
   font-size: 1.4rem;
-  margin-bottom: 40px;
+  margin-bottom: 10px;
   color: #fff;
 }
 
@@ -137,6 +137,7 @@ nav a:hover {
   grid-template-columns: repeat(3, 1fr); /* 3 kolom untuk desktop */
   gap: 20px;
   padding: 20px;
+  margin-top: -20px;
 }
 
 .video-item {
@@ -163,7 +164,7 @@ nav a:hover {
   }
 
   .head {
-    margin-top: -8px;
+    margin-top: -5px;
   }
 
   nav {
