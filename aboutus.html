@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KOMSEL SMA -About us</title>
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  <link rel="stylesheet" href="Style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto+Flex:opsz,wght@8..144,100..1000&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header>
+  <div class="header-container">
+    <div class="komsel-title">
+      KOMSEL <span class="sma">SMA</span>
+    </div>
+    <div class="menu-toggle" id="menu-toggle">
+      <ion-icon name="menu-outline" class="icon-menu"></ion-icon>
+      <ion-icon name="close-outline" class="icon-close" style="display: none;"></ion-icon>
+    </div>
+  </div>
+
+  <nav id="nav-menu">
+    <a href="index.html">HOME</a>
+    <a href="aboutus.html">ABOUT US</a>
+    <a href="galery.html">GALLERY</a>
+    <a href="news.html">NEWS</a>
+    <a href="https://maps.app.goo.gl/1jTntEWWhHMbN8576">LOCATION</a>
+  </nav>
+</header>
+
+  
+
+  <section class="about-us">
+     <p>ABOUT US</p>
+     <h2>KOMSEL <span class="sma">SMA</span></h2>
+  </section>
+
+
+<section class="hero">
+  <div class="content">
+    <div class="info">
+      <p><ion-icon name="location-outline"></ion-icon> GBI AGAPE PKL (RUANG ATAS MULMED)</p>
+      <p><ion-icon name="calendar-outline"></ion-icon> RABU</p>
+      <p><ion-icon name="time-outline"></ion-icon>18.30 |<span id="countdown"></span></p>
+      <p><ion-icon name="call-outline"></ion-icon>INDAH <a style="text-decoration: underline; color: #fff;" href="https://wa.me/6289501836213"> 0895-0183-6213</a></p>
+      <P><ion-icon name="logo-instagram"></ion-icon>@<a style="text-decoration: underline; color: #fff;" href="https://www.instagram.com/smamewing/">smamewing</a></P>
+    </div>
+  </div>
+</section>
+
+<section class="verse">
+  <p class="verse-text">
+    “Dan marilah kita saling memperhatikan supaya kita saling mendorong dalam kasih dan dalam pekerjaan baik. Janganlah kita menjauhkan diri dari pertemuan-pertemuan ibadah kita, seperti dibiasakan oleh beberapa orang, tetapi marilah kita saling menasihati, dan semakin giat melakukannya menjelang hari Tuhan yang mendekat."<br>
+    <span class="verse-ref"><a href="https://www.google.com/search?q=ibrani+10+24-25&rlz=1C1GCEU_enID1160ID1160&oq=&gs_lcrp=EgZjaHJvbWUqCQgAECMYJxjqAjIJCAAQIxgnGOoCMgkIARAjGCcY6gIyCQgCECMYJxjqAjIJCAMQIxgnGOoCMgkIBBAjGCcY6gIyCQgFECMYJxjqAjIJCAYQIxgnGOoCMgkIBxAjGCcY6gLSAQkxNTkwajBqMTWoAgiwAgHxBcHhU9VpaKFh&sourceid=chrome&ie=UTF-8">— Ibrani 10:24-25</a></span>
+  </p>
+</section>
+<section class="versehp">
+  <p class="versehp-text">"Dan marilah kita saling memperhatikan supaya kita saling mendorong dalam kasih dan dalam pekerjaan baik."
+  <span class="versehp-ref"><a href="https://www.google.com/search?q=ibrani+10+24-25&rlz=1C1GCEU_enID1160ID1160&oq=&gs_lcrp=EgZjaHJvbWUqCQgAECMYJxjqAjIJCAAQIxgnGOoCMgkIARAjGCcY6gIyCQgCECMYJxjqAjIJCAMQIxgnGOoCMgkIBBAjGCcY6gIyCQgFECMYJxjqAjIJCAYQIxgnGOoCMgkIBxAjGCcY6gLSAQkxNTkwajBqMTWoAgiwAgHxBcHhU9VpaKFh&sourceid=chrome&ie=UTF-8">— Ibrani 10:24-25</a></span>
+  </p>
+</section>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  // Toggle Hamburger Menu
+  const toggle = document.getElementById('menu-toggle');
+  const navMenu = document.getElementById('nav-menu');
+  const iconMenu = document.querySelector('.icon-menu');
+  const iconClose = document.querySelector('.icon-close');
+
+  toggle.addEventListener('click', () => {
+    navMenu.classList.toggle('show');
+    const isVisible = navMenu.classList.contains('show');
+    iconMenu.style.display = isVisible ? 'none' : 'block';
+    iconClose.style.display = isVisible ? 'block' : 'none';
+  });
+
+  function getNextWednesday1830() {
+  const now = new Date();
+  const target = new Date(now);
+
+  const today = now.getDay(); // 0 = Minggu, 3 = Rabu
+  const isBefore1830 = now.getHours() < 18 || (now.getHours() === 18 && now.getMinutes() < 30);
+
+  if (today === 3 && isBefore1830) {
+    // Hari ini Rabu sebelum 18:30 → target hari ini
+    target.setHours(18, 30, 0, 0);
+  } else {
+    // Rabu berikutnya
+    const daysUntilNextWednesday = (10 - today) % 7 || 7; // (3 - today + 7) % 7
+    target.setDate(now.getDate() + daysUntilNextWednesday);
+    target.setHours(18, 30, 0, 0);
+  }
+
+  return target;
+}
+
+function updateCountdown() {
+  const now = new Date();
+  const target = getNextWednesday1830();
+
+  const diff = target - now;
+
+  const pad = (num) => String(num).padStart(2, '0');
+  const hours = pad(Math.floor(diff / (1000 * 60 * 60)));
+  const minutes = pad(Math.floor((diff / (1000 * 60)) % 60));
+  const seconds = pad(Math.floor((diff / 1000) % 60));
+
+  const countdownEl = document.getElementById("countdown");
+  if (countdownEl) {
+    countdownEl.textContent = ` ${hours}:${minutes}:${seconds}`;
+  }
+}
+
+
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+});
+</script>
+
+
+
+</body>
+</html>

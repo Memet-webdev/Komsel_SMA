@@ -1,0 +1,86 @@
+  <!DOCTYPE html>
+  <html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>KOMSEL SMA - News</title>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <link rel="stylesheet" href="news.css" />
+  </head>
+  <body>
+
+  <header>
+    <div class="header-container">
+      <div class="komsel-title">
+        KOMSEL <span class="sma">SMA</span>
+      </div>
+      <div class="menu-toggle" id="menu-toggle">
+        <ion-icon name="menu-outline" class="icon-menu"></ion-icon>
+        <ion-icon name="close-outline" class="icon-close" style="display: none;"></ion-icon>
+      </div>
+    </div>
+
+    <nav id="nav-menu">
+      <a href="index.html">HOME</a>
+      <a href="aboutus.html">ABOUT US</a>
+      <a href="galery.html">GALLERY</a>
+      <a href="news.html">NEWS</a>
+      <a href="https://maps.app.goo.gl/1jTntEWWhHMbN8576">LOCATION</a>
+    </nav>
+  </header>
+
+  <main class="news-page">
+    <h1>Berita Terbaru</h1>
+    <div class="news-grid">
+
+      <div class="news-item">
+        <a href="https://www.instagram.com/reel/DG8IOe2yvTk/?igsh=bWRvb3VleGNjYnAy" target="_blank">
+          <div class="news-content">
+            <h2>ABC Youth Retreat "True Disciples"</h2>
+            <p>27 s/d 29Juni 2025</p>
+            <p>Wisma Baptis, Bukit Soka - Salatiga</p>
+            <div class="countdown" data-date="2025-06-27T05:00:00"></div>
+          </div>
+        </a>
+      </div>
+
+    </div>
+  </main>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const toggle = document.getElementById('menu-toggle');
+      const navMenu = document.getElementById('nav-menu');
+
+      toggle.addEventListener('click', () => {
+        navMenu.classList.toggle('show');
+        toggle.classList.toggle('active');
+      });
+
+      function updateCountdown() {
+        const countdownElements = document.querySelectorAll('.countdown');
+        countdownElements.forEach((element) => {
+          const targetDate = new Date(element.getAttribute('data-date'));
+          const now = new Date();
+          const diff = targetDate - now;
+
+          if (diff > 0) {
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+            element.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+          } else {
+            element.textContent = 'Event sedang berlangsung';
+          }
+        });
+      }
+
+      updateCountdown();
+      setInterval(updateCountdown, 1000);
+    });
+  </script>
+  </body>
+  </html>
