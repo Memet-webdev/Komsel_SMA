@@ -262,6 +262,14 @@ ion-icon {
     transition: all 0.3s ease;
   }
 
+  .head {
+    margin-top: 5px;
+  }
+
+  .komsel-title {
+    margin-top: -2px;
+  }
+
   nav.active {
     display: flex;
   }
