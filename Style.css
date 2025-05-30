@@ -263,11 +263,11 @@ ion-icon {
   }
 
   .head {
-    margin-top: 7px;
+    margin-top: 6px;
   }
 
   .komsel-title {
-    margin-top: 0px;
+    margin-top: -2px;
   }
 
   nav.active {
