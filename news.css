@@ -160,6 +160,7 @@ nav a:hover {
 
   nav.show {
     display: flex;
+    animation: slideDown 0.4s ease forwards;
     opacity: 1;
     margin-top: -10px;
     transform: translateY(0);
@@ -234,5 +235,16 @@ nav a:hover {
 
   .news-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
   }
 }
