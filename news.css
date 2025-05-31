@@ -145,7 +145,7 @@ nav a:hover {
   nav {
     display: none;
     flex-direction: column;
-    background-color: #360080;
+    background-color: #350080c2;
     width: 100%;
     position: absolute;
     top: 70px;
@@ -161,6 +161,7 @@ nav a:hover {
   nav.show {
     display: flex;
     opacity: 1;
+    margin-top: -10px;
     transform: translateY(0);
   }
 
