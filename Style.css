@@ -276,6 +276,7 @@ ion-icon {
   
   nav.show {
     display: flex;
+    animation: slideDown 0.4s ease forwards;
     opacity: 1;
     transform: translateY(0);
   }
@@ -490,5 +491,16 @@ ion-icon {
 
   .gallery-page h1 {
     font-size: 1.5rem;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
   }
 }
